@@ -2,6 +2,7 @@
 
 #include "playdate_gfx.h"
 #include "playdate_input.h"
+#include "playdate_sfx.h"
 #include "playdate_sys.h"
 
 PlaydateAPI* playdate;
@@ -19,6 +20,7 @@ int eventHandler(PlaydateAPI* pd, PDSystemEvent event, uint32_t arg)
         playdate = pd;
         registerPlaydateSysFunctions();
         initPlaydateGraphics();
+        initPlaydateSoundSource();
         doom_init(1, NULL, 0);
         playdate->system->setUpdateCallback(update, playdate);
     }
